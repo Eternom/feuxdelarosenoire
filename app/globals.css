@@ -4,35 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(93.3% 0.0339 17.77);
-  --secondary-background: oklch(100% 0 0);
-  --foreground: oklch(0% 0 0);
+  --background: oklch(98.6% 0.002 284.15); /* #FBFAFC */
+  --secondary-background: oklch(86.58% 0.024 81.37); /* #DAD3C2 */
+  --foreground: oklch(58.33% 0.0135 79.44); /* #89847A */
   --main-foreground: oklch(0% 0 0);
-  --main: oklch(67.28% 0.2147 24.22);
-  --border: oklch(0% 0 0);
-  --ring: oklch(0% 0 0);
-  --overlay: oklch(0% 0 0 / 0.8);
+  --main: oklch(77.52% 0.1292 63.87); /* #FFA769 */
+  --border: oklch(58.33% 0.0135 79.44); /* #89847A */
+  --ring: oklch(58.33% 0.0135 79.44); /* #89847A */
+  --overlay: oklch(58.33% 0.0135 79.44 / 0.8);
   --shadow: 2px 2px 0px 0px var(--border);
   --chart-1: #FF4D50;
   --chart-2: #5294FF;
-  --chart-3: #FACC00;
+  --chart-3: #FFBF3E; /* #FFBF3E */
   --chart-4: #05E17A;
   --chart-5: #7A83FF;
   --chart-active-dot: #000;
 }
 
 .dark {
-  --background: oklch(24.95% 0.0491 20.19);
-  --secondary-background: oklch(23.93% 0 0);
-  --foreground: oklch(92.49% 0 0);
+  --background: oklch(25% 0.01 79.44); /* Version sombre de #89847A */
+  --secondary-background: oklch(35% 0.01 79.44);
+  --foreground: oklch(98.6% 0.002 284.15); /* #FBFAFC */
   --main-foreground: oklch(0% 0 0);
-  --main: oklch(70.49% 0.1869 22.23);
-  --border: oklch(0% 0 0);
-  --ring: oklch(100% 0 0);
+  --main: oklch(77.52% 0.1292 63.87); /* #FFA769 */
+  --border: oklch(40% 0.01 79.44);
+  --ring: oklch(77.52% 0.1292 63.87);
   --shadow: 2px 2px 0px 0px var(--border);
   --chart-1: #FF6669;
   --chart-2: #5294FF;
-  --chart-3: #E0B700;
+  --chart-3: #FFBF3E;
   --chart-4: #04C86D;
   --chart-5: #7A83FF;
   --chart-active-dot: #fff;
