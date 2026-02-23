@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
 import { RegisterForm } from "@/components/auth/register-form"
