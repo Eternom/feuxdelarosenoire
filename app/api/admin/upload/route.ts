@@ -43,7 +43,10 @@ export async function POST(req: Request) {
   await mkdir(UPLOAD_DIR, { recursive: true })
   const ext      = file.name.split(".").pop() ?? "jpg"
   const filename = `${nanoid()}.${ext}`
-  await writeFile(join(UPLOAD_DIR, filename), Buffer.from(await file.arrayBuffer()))
+  const filePath = join(UPLOAD_DIR, filename)
+  
+  console.log(`[UPLOAD] Saving file to: ${filePath}`)
+  await writeFile(filePath, Buffer.from(await file.arrayBuffer()))
 
   return Response.json({ key: filename, url: `/uploads/${filename}` })
 }

@@ -6,25 +6,39 @@ import { join } from "path"
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
+// Tentative de détection du dossier d'upload
 const UPLOAD_DIR = existsSync("/app/uploads") 
   ? "/app/uploads" 
   : join(process.cwd(), "public", "uploads")
 
 export async function GET(req: Request, { params }: { params: any }) {
   try {
-    // Gestion universelle pour Next.js 14, 15 et +
+    // Gestion universelle des paramètres (Next.js 14, 15 et +)
     const resolvedParams = await (params instanceof Promise ? params : Promise.resolve(params))
-    const filename = resolvedParams.filename
+    const pathArray = resolvedParams.path
+    
+    // Si on utilise [...path], pathArray est un tableau
+    const filename = Array.isArray(pathArray) ? pathArray.join('/') : pathArray
+
+    if (!filename) {
+      console.error("[IMAGE_SERVE] Nom de fichier manquant dans les paramètres")
+      return new Response("Nom de fichier manquant", { status: 400 })
+    }
     
     // Décodage au cas où le nom contienne des caractères spéciaux (%)
     const decodedFilename = decodeURIComponent(filename)
     const filePath = join(UPLOAD_DIR, decodedFilename)
 
     if (!existsSync(filePath)) {
-      console.error("Image non trouvée sur le disque:", filePath)
+      console.error(`[IMAGE_SERVE] Image non trouvée sur le disque: ${filePath}`)
+      // En production, on peut aussi lister le contenu du dossier pour débugger
+      // const files = existsSync(UPLOAD_DIR) ? readdirSync(UPLOAD_DIR) : []
       return new Response("Not Found", { 
         status: 404,
-        headers: { 'X-Debug-Path': filePath } 
+        headers: { 
+          'X-Debug-Path': filePath,
+          'X-Debug-Exists-Dir': existsSync(UPLOAD_DIR).toString()
+        } 
       })
     }
 
@@ -40,16 +54,16 @@ export async function GET(req: Request, { params }: { params: any }) {
 
     const contentType = contentTypes[ext] || 'application/octet-stream'
 
-    // Utilisation de Response au lieu de NextResponse pour un contrôle total
     return new Response(file, {
       headers: { 
         'Content-Type': contentType,
+        'Content-Length': file.length.toString(),
         'Cache-Control': 'public, max-age=31536000, immutable',
         'X-Served-By': 'NextJS-Dynamic-Route'
       }
     })
-  } catch (error) {
-    console.error("Error serving image:", error)
-    return new Response("Not Found", { status: 404 })
+  } catch (error: any) {
+    console.error("[IMAGE_SERVE] Erreur lors du service de l'image:", error)
+    return new Response("Internal Server Error", { status: 500 })
   }
 }
