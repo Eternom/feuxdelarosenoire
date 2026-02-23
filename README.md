@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Feux de la Rose Noire
 
-## Getting Started
+Site web pour **Feux de la Rose Noire**, un atelier artisanal de forge et de poterie. Il présente les activités, les événements à venir (stages, marchés, expositions) et permet aux visiteurs de contacter l'atelier pour réserver.
 
-First, run the development server:
+## Fonctionnalités
+
+- **Événements en cards** — stages, marchés, expositions avec image et description
+- **Calendrier dynamique** — généré automatiquement depuis les dates des événements
+- **Réservation sans friction** — par mail ou téléphone, pas de compte requis
+- **Interface d'administration** — gestion des événements en autonomie
+
+## Stack
+
+- [Next.js](https://nextjs.org) (App Router)
+- [PostgreSQL](https://www.postgresql.org) + [Prisma](https://www.prisma.io)
+- [Better Auth](https://better-auth.com) — authentification admin
+- [Zod](https://zod.dev) + [React Hook Form](https://react-hook-form.com) — validation des formulaires
+- [shadcn/ui](https://ui.shadcn.com) avec le thème [Neo-brutalism](https://neobrutalism.dev)
+- Déployé via [Dokploy](https://dokploy.com)
+
+## Design
+
+Dark theme exclusif, palette noir et rouge, style neo-brutaliste.
+
+## Lancer le projet
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Configurer les variables d'environnement (`.env`) : connexion PostgreSQL, secret Better Auth.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Orchestrated with [Claude Code](https://claude.ai/claude-code)*
