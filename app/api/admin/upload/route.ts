@@ -1,8 +1,9 @@
 import { writeFile, mkdir, readdir, stat } from "fs/promises"
+import { existsSync } from "fs"
 import { join } from "path"
 import { nanoid } from "nanoid"
 
-const UPLOAD_DIR = process.env.NODE_ENV === "production" ? "/app/uploads" : join(process.cwd(), "public", "uploads")
+const UPLOAD_DIR = existsSync("/app/uploads") ? "/app/uploads" : join(process.cwd(), "public", "uploads")
 const ALLOWED     = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/svg+xml"]
 const MAX_SIZE_MB = 5
 

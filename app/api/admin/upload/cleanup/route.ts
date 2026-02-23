@@ -1,8 +1,9 @@
 import { readdir, unlink } from "fs/promises"
+import { existsSync } from "fs"
 import { join } from "path"
 import { prisma } from "@/lib/prisma"
 
-const UPLOAD_DIR = process.env.NODE_ENV === "production" ? "/app/uploads" : join(process.cwd(), "public", "uploads")
+const UPLOAD_DIR = existsSync("/app/uploads") ? "/app/uploads" : join(process.cwd(), "public", "uploads")
 
 /** POST /api/admin/upload/cleanup — supprime les images orphelines */
 export async function POST() {
