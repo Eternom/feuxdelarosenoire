@@ -39,8 +39,8 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Crée le dossier uploads (sera surchargé par le volume Dokploy)
-RUN mkdir -p ./public/uploads && chown nextjs:nodejs ./public/uploads
+# Dossier uploads hors public
+RUN mkdir -p /app/uploads && chown nextjs:nodejs /app/uploads
 
 USER nextjs
 
