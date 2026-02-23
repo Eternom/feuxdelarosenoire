@@ -1,17 +1,20 @@
 import { readFile } from "fs/promises"
 import { join } from "path"
+import type { NextRequest } from "next/server"
 
 const UPLOAD_DIR = "/app/uploads"
 
 export async function GET(
-  req: Request,
-  { params }: { params: { filename: string } }
+  req: NextRequest,
+  context: { params: Promise<{ filename: string }> }
 ) {
+  const { filename } = await context.params
+
   try {
-    const filePath = join(UPLOAD_DIR, params.filename)
+    const filePath = join(UPLOAD_DIR, filename)
     const file = await readFile(filePath)
 
-    const ext = params.filename.split(".").pop()?.toLowerCase()
+    const ext = filename.split(".").pop()?.toLowerCase()
 
     const contentTypeMap: Record<string, string> = {
       jpg: "image/jpeg",
@@ -24,7 +27,8 @@ export async function GET(
 
     return new Response(file, {
       headers: {
-        "Content-Type": contentTypeMap[ext || ""] || "application/octet-stream",
+        "Content-Type":
+          contentTypeMap[ext || ""] || "application/octet-stream",
         "Cache-Control": "public, max-age=31536000, immutable",
       },
     })
