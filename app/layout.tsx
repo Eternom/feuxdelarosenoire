@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import type { Metadata } from "next"
 import { Cinzel, EB_Garamond } from "next/font/google"
 import "./globals.css"
