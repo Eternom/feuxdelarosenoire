@@ -37,7 +37,6 @@ function Section({ icon: Icon, title, children }: {
 
 export function PartnerForm({ defaultValues, mode }: PartnerFormProps) {
   const router = useRouter()
-  const logoUrl = watch("logoUrl")
 
   const {
     register,
@@ -54,6 +53,7 @@ export function PartnerForm({ defaultValues, mode }: PartnerFormProps) {
     },
   })
 
+  const logoUrl   = watch("logoUrl")
   const published = watch("published")
 
   const onSubmit = async (data: CreatePartnerInput) => {
