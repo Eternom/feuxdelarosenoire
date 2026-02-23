@@ -67,7 +67,7 @@ export default async function EventDetailPage({
             src={imageUrl}
             alt={event.title}
             fill
-            unoptimized={imageUrl.startsWith("/uploads")}
+            unoptimized={imageUrl.startsWith("/api/uploads")}
             className="object-cover"
             sizes="100vw"
             priority

@@ -19,7 +19,7 @@ export async function GET() {
         const s = await stat(join(UPLOAD_DIR, f))
         return {
           key:          f,
-          url:          `/uploads/${f}`,
+          url:          `/api/uploads/${f}`,
           size:         s.size,
           lastModified: s.mtime.toISOString(),
         }
@@ -48,5 +48,5 @@ export async function POST(req: Request) {
   console.log(`[UPLOAD] Saving file to: ${filePath}`)
   await writeFile(filePath, Buffer.from(await file.arrayBuffer()))
 
-  return Response.json({ key: filename, url: `/uploads/${filename}` })
+  return Response.json({ key: filename, url: `/api/uploads/${filename}` })
 }

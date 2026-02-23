@@ -43,7 +43,7 @@ export function EventCard({ event, size = "medium" }: EventCardProps) {
           src={imageUrl}
           alt={event.title}
           fill
-          unoptimized={imageUrl.startsWith("/uploads")}
+          unoptimized={imageUrl.startsWith("/api/uploads")}
           className="object-cover"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
