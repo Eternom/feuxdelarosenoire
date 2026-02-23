@@ -174,7 +174,6 @@ function Section({ icon: Icon, title, children }: {
 /* ─── Main form ─── */
 export function EventForm({ defaultValues, mode }: EventFormProps) {
   const router = useRouter()
-  const imageUrl = watch("imageUrl")
 
   const {
     register,
@@ -190,6 +189,7 @@ export function EventForm({ defaultValues, mode }: EventFormProps) {
     },
   })
 
+  const imageUrl  = watch("imageUrl")
   const startDate = watch("startDate")
   const endDate   = watch("endDate")
   const published = watch("published")
