@@ -68,3 +68,42 @@ export async function GET(req: Request, { params }: { params: any }) {
     return new Response("Internal Server Error", { status: 500 })
   }
 }
+
+
+// Réponse HEAD pour permettre aux clients de valider rapidement la ressource
+export async function HEAD(req: Request, ctx: { params: any }) {
+  try {
+    const resolvedParams = await (ctx.params instanceof Promise ? ctx.params : Promise.resolve(ctx.params))
+    const pathArray = resolvedParams.path
+    const filename = Array.isArray(pathArray) ? pathArray.join('/') : pathArray
+    if (!filename) return new Response(null, { status: 400 })
+
+    const decodedFilename = decodeURIComponent(filename)
+    const filePath = join(UPLOAD_DIR, decodedFilename)
+    if (!existsSync(filePath)) return new Response(null, { status: 404, headers: { 'X-Debug-Path': filePath } })
+
+    // On lit uniquement la taille pour Content-Length
+    const data = await readFile(filePath)
+    const ext = decodedFilename.split('.').pop()?.toLowerCase() || ''
+    const contentTypes: Record<string, string> = {
+      'jpg': 'image/jpeg', 'jpeg': 'image/jpeg',
+      'png': 'image/png', 'webp': 'image/webp',
+      'svg': 'image/svg+xml', 'gif': 'image/gif',
+      'avif': 'image/avif'
+    }
+    const contentType = contentTypes[ext] || 'application/octet-stream'
+
+    return new Response(null, {
+      status: 200,
+      headers: {
+        'Content-Type': contentType,
+        'Content-Length': data.length.toString(),
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'Content-Disposition': `inline; filename="${decodedFilename}"`,
+        'X-Served-By': 'NextJS-Dynamic-Route'
+      }
+    })
+  } catch {
+    return new Response(null, { status: 500 })
+  }
+}
