@@ -71,11 +71,11 @@ export function EventsCalendar({ events }: EventsCalendarProps) {
             <div className="flex-1 md:min-h-65">
               {selectedDay ? (
                 <div className="space-y-4">
-                  <h3 className="font-heading text-xl border-b-2 border-border pb-3">
+                  <h3 className="font-heading text-xl md:text-2xl border-b-2 border-border pb-3">
                     {format(selectedDay, "EEEE d MMMM yyyy", { locale: fr })}
                   </h3>
                   {selectedEvents.length === 0 ? (
-                    <p className="text-foreground/50 text-sm italic">
+                    <p className="text-foreground/50 text-sm md:text-base italic">
                       Aucun événement ce jour-là.
                     </p>
                   ) : (
@@ -86,11 +86,11 @@ export function EventsCalendar({ events }: EventsCalendarProps) {
                             href={`/events/${event.id}`}
                             className="block border-2 border-border rounded-base p-4 bg-background shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none transition-all duration-200 space-y-1"
                           >
-                            <p className="font-heading">{event.title}</p>
+                            <p className="font-heading text-base md:text-lg lg:text-xl">{event.title}</p>
                             {event.location && (
-                              <p className="text-xs text-foreground/50">{event.location}</p>
+                              <p className="text-xs md:text-sm lg:text-base text-foreground/50">{event.location}</p>
                             )}
-                            <p className="text-xs text-main font-heading">Voir les détails →</p>
+                            <p className="text-xs md:text-sm lg:text-base text-main font-heading">Voir les détails →</p>
                           </a>
                         </li>
                       ))}
@@ -100,7 +100,7 @@ export function EventsCalendar({ events }: EventsCalendarProps) {
               ) : (
                 <div className="h-full flex flex-col justify-center space-y-3 text-foreground/40">
                   <p className="text-4xl">📅</p>
-                  <p className="text-sm">
+                  <p className="text-sm md:text-base">
                     Sélectionnez une date pour voir les événements.
                     <br />
                     Les <span className="text-main font-heading">cases colorées</span> indiquent les jours avec événement.

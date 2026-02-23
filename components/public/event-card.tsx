@@ -54,17 +54,17 @@ export function EventCard({ event, size = "medium" }: EventCardProps) {
 
       {/* Contenu — titre + date + lieu toujours visibles */}
       <div className="flex-1 p-4 space-y-2">
-        <h3 className="font-heading text-base leading-tight line-clamp-2">
+        <h3 className="font-heading text-base md:text-lg lg:text-xl leading-tight line-clamp-2">
           {event.title}
         </h3>
         <div className="flex flex-col gap-1 pt-1">
-          <div className="flex items-center gap-1.5 text-xs text-main font-heading">
-            <CalendarDays className="size-3 shrink-0" />
+          <div className="flex items-center gap-1.5 text-xs md:text-sm lg:text-base text-main font-heading">
+            <CalendarDays className="size-3 md:size-3.5 lg:size-4 shrink-0" />
             <span>{format(new Date(event.startDate), "d MMM yyyy", { locale: fr })}</span>
           </div>
           {event.location && (
-            <div className="flex items-center gap-1.5 text-xs text-foreground/60">
-              <MapPin className="size-3 shrink-0" />
+            <div className="flex items-center gap-1.5 text-xs md:text-sm lg:text-base text-foreground/60">
+              <MapPin className="size-3 md:size-3.5 lg:size-4 shrink-0" />
               <span className="truncate">{event.location}</span>
             </div>
           )}

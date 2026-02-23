@@ -38,8 +38,8 @@ export function ShopSection() {
               </div>
 
               <div className="border-2 border-border rounded-base p-6 bg-main text-main-foreground shadow-shadow space-y-4">
-                <h3 className="font-heading text-xl">Retrouvez-nous lors de :</h3>
-                <ul className="space-y-2 text-sm font-base">
+                <h3 className="font-heading text-xl md:text-2xl">Retrouvez-nous lors de :</h3>
+                <ul className="space-y-2 text-sm md:text-base lg:text-lg font-base">
                   <li className="flex items-start gap-2">
                     <span className="mt-1">▸</span>
                     Marchés d&apos;artisans &amp; foires
@@ -59,7 +59,7 @@ export function ShopSection() {
                 </ul>
                 <a
                   href="#calendrier"
-                  className="inline-block mt-2 underline underline-offset-4 text-sm font-heading hover:opacity-80 transition-opacity"
+                  className="inline-block mt-2 underline underline-offset-4 text-sm md:text-base lg:text-lg font-heading hover:opacity-80 transition-opacity"
                 >
                   Voir le calendrier →
                 </a>

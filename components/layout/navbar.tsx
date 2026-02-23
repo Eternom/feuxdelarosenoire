@@ -23,7 +23,7 @@ export function Navbar() {
         {/* Logo — gauche */}
         <Link
           href="/"
-          className="font-heading text-lg hover:text-main transition-colors duration-200"
+          className="font-heading text-lg md:text-xl lg:text-2xl hover:text-main transition-colors duration-200"
         >
           Feux de la Rose Noire
         </Link>
@@ -34,7 +34,7 @@ export function Navbar() {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-2 px-3 py-2 rounded-base text-sm font-base text-foreground/70 hover:text-main hover:bg-main/10 transition-all duration-200"
+              className="flex items-center gap-2 px-3 py-2 rounded-base text-sm lg:text-base font-base text-foreground/70 hover:text-main hover:bg-main/10 transition-all duration-200"
             >
               <Icon className="size-5 shrink-0" />
               <span className="hidden lg:inline">{label}</span>

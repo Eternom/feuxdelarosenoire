@@ -63,8 +63,8 @@ export function MissionSection() {
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
                   <div className="border-2 border-border rounded-base p-6 bg-background shadow-shadow space-y-3 h-full">
                     <span className="text-3xl">{activity.icon}</span>
-                    <h3 className="font-heading text-xl">{activity.title}</h3>
-                    <p className="text-sm text-foreground/70 leading-relaxed">{activity.text}</p>
+                    <h3 className="font-heading text-xl md:text-2xl lg:text-3xl">{activity.title}</h3>
+                    <p className="text-sm md:text-base lg:text-lg text-foreground/70 leading-relaxed">{activity.text}</p>
                   </div>
                 </div>
 

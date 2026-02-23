@@ -35,7 +35,7 @@ export async function CTASection() {
           <h2 className="text-4xl md:text-5xl font-heading text-main-foreground mt-2">
             Venez nous rencontrer
           </h2>
-          <p className="text-main-foreground/80 text-lg leading-relaxed mt-4">
+          <p className="text-main-foreground/80 text-lg md:text-xl lg:text-2xl leading-relaxed mt-4">
             Une question sur nos stages, nos marchés, ou simplement envie d&apos;en savoir plus&nbsp;?
             <br />
             Appelez-nous directement — nous serons ravis d&apos;échanger avec vous.
@@ -53,8 +53,8 @@ export async function CTASection() {
                 >
                   <Icon className="size-5 shrink-0 text-main" />
                   <div className="text-left">
-                    <p className="text-xs opacity-60 font-base">{label}</p>
-                    <p className="text-sm">{value}</p>
+                    <p className="text-xs md:text-sm opacity-60 font-base">{label}</p>
+                    <p className="text-sm md:text-base lg:text-lg">{value}</p>
                   </div>
                 </a>
               ))}

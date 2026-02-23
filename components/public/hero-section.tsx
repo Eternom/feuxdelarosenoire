@@ -48,13 +48,13 @@ export function HeroSection() {
         {/* Contenu central */}
         <div className="text-center space-y-6 md:space-y-8">
           <ScrollReveal>
-            <div className="inline-block border-2 border-border px-4 py-1 text-sm font-base bg-main text-main-foreground shadow-shadow rounded-base">
+            <div className="inline-block border-2 border-border px-4 py-1 text-sm md:text-base font-base bg-main text-main-foreground shadow-shadow rounded-base">
               ASBL · Forge &amp; Poterie · Savoir-faire ancestraux
             </div>
           </ScrollReveal>
 
           <ScrollReveal>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading leading-tight tracking-tight">
               Feux de la{" "}
               <span className="text-main relative inline-block">
                 Rose Noire
@@ -64,7 +64,7 @@ export function HeroSection() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <p className="text-base md:text-xl text-foreground/60 italic font-base leading-relaxed">
+            <p className="text-base md:text-xl lg:text-2xl text-foreground/60 italic font-base leading-relaxed">
               Redonner vie aux savoir-faire d&apos;hier
               <br className="hidden sm:block" />
               pour construire le monde de demain.
@@ -75,13 +75,13 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
               <a
                 href="#evenements"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-main text-main-foreground font-heading text-sm border-2 border-border shadow-shadow rounded-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-main text-main-foreground font-heading text-sm md:text-base border-2 border-border shadow-shadow rounded-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none transition-all duration-200"
               >
                 Voir les événements
               </a>
               <a
                 href="#apropos"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary-background text-foreground font-heading text-sm border-2 border-border shadow-shadow rounded-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary-background text-foreground font-heading text-sm md:text-base border-2 border-border shadow-shadow rounded-base hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none transition-all duration-200"
               >
                 En savoir plus
               </a>

@@ -33,14 +33,14 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
                 >
                   <PartnerLogo partner={partner} />
                   <div className="text-center">
-                    <p className="font-heading text-xs leading-tight line-clamp-2">{partner.name}</p>
+                    <p className="font-heading text-xs md:text-sm lg:text-base leading-tight line-clamp-2">{partner.name}</p>
                     <ExternalLink className="size-3 text-main mx-auto mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </a>
               ) : (
                 <div className="border-2 border-border rounded-base bg-secondary-background shadow-shadow p-4 flex flex-col items-center gap-3">
                   <PartnerLogo partner={partner} />
-                  <p className="font-heading text-xs leading-tight text-center line-clamp-2">{partner.name}</p>
+                  <p className="font-heading text-xs md:text-sm lg:text-base leading-tight text-center line-clamp-2">{partner.name}</p>
                 </div>
               )}
             </ScrollReveal>
@@ -65,7 +65,7 @@ function PartnerLogo({ partner }: { partner: Partner }) {
   }
   return (
     <div className="h-12 w-full flex items-center justify-center">
-      <span className="font-heading text-sm text-foreground/60 text-center leading-tight">{partner.name}</span>
+      <span className="font-heading text-sm md:text-base text-foreground/60 text-center leading-tight">{partner.name}</span>
     </div>
   )
 }

@@ -93,12 +93,12 @@ export default async function EventDetailPage({
 
           {/* Titre + date + lieu */}
           <div className="space-y-3 border-b-2 border-border pb-6">
-            <h1 className="text-2xl sm:text-3xl font-heading leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading leading-tight">
               {event.title}
             </h1>
             <div className="flex flex-col gap-1.5">
-              <div className="flex items-center gap-2 text-sm text-foreground/70">
-                <CalendarDays className="size-4 shrink-0 text-main" />
+              <div className="flex items-center gap-2 text-sm md:text-base lg:text-lg text-foreground/70">
+                <CalendarDays className="size-4 md:size-5 shrink-0 text-main" />
                 <span>
                   {format(new Date(event.startDate), "d MMMM yyyy 'à' HH'h'mm", { locale: fr })}
                   {event.endDate &&
@@ -106,8 +106,8 @@ export default async function EventDetailPage({
                 </span>
               </div>
               {event.location && (
-                <div className="flex items-center gap-2 text-sm text-foreground/70">
-                  <MapPin className="size-4 shrink-0 text-main" />
+                <div className="flex items-center gap-2 text-sm md:text-base lg:text-lg text-foreground/70">
+                  <MapPin className="size-4 md:size-5 shrink-0 text-main" />
                   <span>{event.location}</span>
                 </div>
               )}
@@ -124,8 +124,8 @@ export default async function EventDetailPage({
           {/* Bloc réservation */}
           {(admin?.email || admin?.phone) && (
             <div className="border-2 border-border rounded-base p-6 bg-secondary-background shadow-shadow space-y-4">
-              <h2 className="font-heading text-xl">Réservation</h2>
-              <p className="text-sm text-foreground/70">
+              <h2 className="font-heading text-xl md:text-2xl">Réservation</h2>
+              <p className="text-sm md:text-base text-foreground/70">
                 Les réservations se font uniquement par mail ou téléphone.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">

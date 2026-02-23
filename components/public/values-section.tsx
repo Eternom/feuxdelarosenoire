@@ -65,10 +65,10 @@ export function ValuesSection() {
                     className={`border-2 border-border rounded-base p-6 shadow-shadow space-y-3 h-full
                       ${value.highlight ? "bg-main text-main-foreground" : "bg-secondary-background"}`}
                   >
-                    <h3 className={`font-heading text-2xl ${value.highlight ? "" : ""}`}>
+                    <h3 className={`font-heading text-2xl md:text-3xl lg:text-4xl ${value.highlight ? "" : ""}`}>
                       {value.word}
                     </h3>
-                    <p className={`text-sm leading-relaxed ${value.highlight ? "opacity-80" : "text-foreground/70"}`}>
+                    <p className={`text-sm md:text-base lg:text-lg leading-relaxed ${value.highlight ? "opacity-80" : "text-foreground/70"}`}>
                       {value.description}
                     </p>
                   </div>
