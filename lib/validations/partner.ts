@@ -1,13 +1,13 @@
 import { z } from "zod"
 
-const urlOrEmpty = z.string().url().optional().or(z.literal("")).transform(v => v === "" ? undefined : v)
+const urlOrEmpty = z.union([z.string().url(), z.literal("")]).optional()
 
 export const createPartnerSchema = z.object({
   name:        z.string().min(1, "Nom requis"),
   logoUrl:     urlOrEmpty,
   websiteUrl:  urlOrEmpty,
   description: z.string().optional(),
-  order:       z.number().int().default(0),
+  order:       z.number().int(),
   published:   z.boolean(),
 })
 
