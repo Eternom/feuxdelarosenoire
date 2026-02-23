@@ -20,9 +20,6 @@ RUN bunx prisma generate
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-ARG NEXT_PUBLIC_APP_URL
-ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
-
 RUN bun run build
 
 # ─── Stage 3 : Runner ────────────────────────────────────────────────────────
