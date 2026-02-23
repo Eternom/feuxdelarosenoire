@@ -46,7 +46,7 @@ export async function GET(req: Request, { params }: { params: any }) {
     const ext = decodedFilename.split('.').pop()?.toLowerCase() || ''
     
     const contentTypes: Record<string, string> = {
-      'jpg': 'image/jpeg', 'jpeg': 'image/jpeg',
+      'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'jfif': 'image/jpeg',
       'png': 'image/png', 'webp': 'image/webp',
       'svg': 'image/svg+xml', 'gif': 'image/gif',
       'avif': 'image/avif'
@@ -86,7 +86,7 @@ export async function HEAD(req: Request, ctx: { params: any }) {
     const data = await readFile(filePath)
     const ext = decodedFilename.split('.').pop()?.toLowerCase() || ''
     const contentTypes: Record<string, string> = {
-      'jpg': 'image/jpeg', 'jpeg': 'image/jpeg',
+      'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'jfif': 'image/jpeg',
       'png': 'image/png', 'webp': 'image/webp',
       'svg': 'image/svg+xml', 'gif': 'image/gif',
       'avif': 'image/avif'

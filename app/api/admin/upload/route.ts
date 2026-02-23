@@ -5,7 +5,7 @@ import { nanoid } from "nanoid"
 
 const UPLOAD_DIR = existsSync("/app/uploads") ? "/app/uploads" : join(process.cwd(), "public", "uploads")
 console.log(`[UPLOAD] Initialization - UPLOAD_DIR: ${UPLOAD_DIR}`)
-const ALLOWED     = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/svg+xml"]
+const ALLOWED     = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/svg+xml", "image/jfif", "image/avif"]
 const MAX_SIZE_MB = 5
 
 /** GET /api/admin/upload — liste les images uploadées */

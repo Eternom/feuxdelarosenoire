@@ -39,7 +39,7 @@ export function EventCard({ event, size = "medium" }: EventCardProps) {
     >
       {/* Image */}
       <div className={`relative ${imageHeight} overflow-hidden shrink-0`}>
-        {imageUrl.includes("/uploads/") ? (
+        {imageUrl.includes("uploads/") ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={imageUrl}
@@ -51,6 +51,7 @@ export function EventCard({ event, size = "medium" }: EventCardProps) {
             src={imageUrl}
             alt={event.title}
             fill
+            unoptimized={true}
             className="object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />

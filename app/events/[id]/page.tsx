@@ -63,7 +63,7 @@ export default async function EventDetailPage({
 
         {/* Hero image pleine largeur */}
         <div className="relative aspect-4/3 sm:aspect-video md:aspect-auto md:h-95 overflow-hidden">
-          {imageUrl.includes("/uploads/") ? (
+          {imageUrl.includes("uploads/") ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
               src={imageUrl}
@@ -75,6 +75,7 @@ export default async function EventDetailPage({
               src={imageUrl}
               alt={event.title}
               fill
+              unoptimized={true}
               className="object-cover"
               sizes="100vw"
               priority
