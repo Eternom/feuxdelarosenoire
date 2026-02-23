@@ -39,14 +39,22 @@ export function EventCard({ event, size = "medium" }: EventCardProps) {
     >
       {/* Image */}
       <div className={`relative ${imageHeight} overflow-hidden shrink-0`}>
-        <Image
-          src={imageUrl}
-          alt={event.title}
-          fill
-          unoptimized={imageUrl.startsWith("/api/uploads")}
-          className="object-cover"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+        {imageUrl.includes("/uploads/") ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={imageUrl}
+            alt={event.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <Image
+            src={imageUrl}
+            alt={event.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        )}
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
         <div className="absolute top-3 left-3">
           <Badge>{typeLabels[event.type] ?? event.type}</Badge>

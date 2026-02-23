@@ -11,28 +11,28 @@ const UPLOAD_DIR = existsSync("/app/uploads")
   ? "/app/uploads" 
   : join(process.cwd(), "public", "uploads")
 
+console.log(`[IMAGE_SERVE] Initialization - UPLOAD_DIR: ${UPLOAD_DIR}`)
+
 export async function GET(req: Request, { params }: { params: any }) {
   try {
-    // Gestion universelle des paramètres (Next.js 14, 15 et +)
     const resolvedParams = await (params instanceof Promise ? params : Promise.resolve(params))
     const pathArray = resolvedParams.path
     
-    // Si on utilise [...path], pathArray est un tableau
     const filename = Array.isArray(pathArray) ? pathArray.join('/') : pathArray
 
     if (!filename) {
-      console.error("[IMAGE_SERVE] Nom de fichier manquant dans les paramètres")
-      return new Response("Nom de fichier manquant", { status: 400 })
+      console.error("[IMAGE_SERVE] Path missing in params")
+      return new Response("Path missing", { status: 400 })
     }
     
-    // Décodage au cas où le nom contienne des caractères spéciaux (%)
     const decodedFilename = decodeURIComponent(filename)
     const filePath = join(UPLOAD_DIR, decodedFilename)
 
+    console.log(`[IMAGE_SERVE] Request for: ${decodedFilename}`)
+    console.log(`[IMAGE_SERVE] Absolute path: ${filePath}`)
+
     if (!existsSync(filePath)) {
-      console.error(`[IMAGE_SERVE] Image non trouvée sur le disque: ${filePath}`)
-      // En production, on peut aussi lister le contenu du dossier pour débugger
-      // const files = existsSync(UPLOAD_DIR) ? readdirSync(UPLOAD_DIR) : []
+      console.error(`[IMAGE_SERVE] File not found: ${filePath}`)
       return new Response("Not Found", { 
         status: 404,
         headers: { 
@@ -53,6 +53,7 @@ export async function GET(req: Request, { params }: { params: any }) {
     }
 
     const contentType = contentTypes[ext] || 'application/octet-stream'
+    console.log(`[IMAGE_SERVE] Serving ${decodedFilename} as ${contentType} (${file.length} bytes)`)
 
     return new Response(file, {
       headers: { 
@@ -63,7 +64,7 @@ export async function GET(req: Request, { params }: { params: any }) {
       }
     })
   } catch (error: any) {
-    console.error("[IMAGE_SERVE] Erreur lors du service de l'image:", error)
+    console.error("[IMAGE_SERVE] Critical error:", error)
     return new Response("Internal Server Error", { status: 500 })
   }
 }
