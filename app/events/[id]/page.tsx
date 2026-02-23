@@ -62,7 +62,7 @@ export default async function EventDetailPage({
       <main>
 
         {/* Hero image pleine largeur */}
-        <div className="relative aspect-[4/3] sm:aspect-video md:aspect-auto md:h-95 overflow-hidden">
+        <div className="relative aspect-4/3 sm:aspect-video md:aspect-auto md:h-95 overflow-hidden">
           <Image
             src={imageUrl}
             alt={event.title}
